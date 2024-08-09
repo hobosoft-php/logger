@@ -1,0 +1,58 @@
+logger:
+    config:
+        log_path:             '{path.log}/logger-{env.APP_MODE}'
+
+        # Show timestamps in the log output.
+        show_timestamps:      true
+
+        # Enable channels in the logger.
+        enable_channels:      true
+    defaults:
+        handler_class:        Library\Logger\Formatters\StdoutWriter
+        formatter_class:      Library\Logger\Formatters\LineFormatter
+        formatter_format:     '[%timestamp%] %channel%.%level_name%: %message% %context%'
+    logger:
+        handlers:             []
+        processors:           []
+        filters:              []
+    handlers:
+
+        # Prototype
+        name:
+            class:                ~ # Required
+            formatter:            ~
+            handlers:             []
+            processors:           []
+
+    # A writer is almost like a handler, except instead of passing the LogItem to the next one, it will output it somewhere.
+    writers:
+
+        # Prototype
+        name:
+            class:                ~ # Required
+            formatter:            ~
+            handlers:             []
+            processors:           []
+    processors:
+
+        # Prototype
+        name:
+            class:                ~ # Required
+    formatters:
+
+        # Prototype
+        name:
+            class:                ~ # Required
+            format:               ~
+    filters:
+
+        # Prototype
+        name:
+            class:                ~ # Required
+
+    # Define the logger cascade tree here.  Every 'logger' is the start of a chain, and the end should be a writer w/formatter.
+    cascade:
+
+        # Prototype
+        name:
+            class:                ~ # Required
