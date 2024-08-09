@@ -1,6 +1,8 @@
 {
     "name": "hobosoft/logger",
+    "version": "1.0.0",
     "description": "PHP Logging Library",
+    "minimum-stability": "dev",
     "type": "library",
     "license": "MIT",
     "autoload": {
