@@ -1,8 +1,8 @@
 <?php
 
-namespace Library\Logger\Contracts\Handlers;
+namespace Hobosoft\Logger\Contracts\Handlers;
 
-use Library\Logger\LogItem;
+use Hobosoft\Logger\LogItem;
 
 interface HandlerInterface
 {

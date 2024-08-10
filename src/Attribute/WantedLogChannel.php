@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Attribute;
+namespace Hobosoft\Logger\Attribute;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
 final class WithMonologChannel

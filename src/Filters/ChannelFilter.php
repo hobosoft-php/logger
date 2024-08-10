@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Filters;
+namespace Hobosoft\Logger\Filters;
 
-use Library\Logger\Contracts\Handlers\FilterInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
+use Hobosoft\Logger\LogItem;
 
 class ChannelFilter implements FilterInterface
 {

@@ -1,19 +1,18 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use Closure;
-use Library\Config2\Contracts\ConfigInterface;
-use Library\Logger\Contracts\HandlerOptions\ClosableInterface;
-use Library\Logger\Contracts\HandlerOptions\FlushableInterface;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\LoggerInterface;
-use Library\Logger\Contracts\LogLevel;
-use Library\Logger\Contracts\Traits\ChannelsTrait;
-use Library\Logger\Handlers\ProcessorHandler;
-use Library\Logger\Processors\TimestampProcessor;
-use Library\Logger\Writers\BufferWriter;
+use Hobosoft\Config\Contracts\ConfigInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ClosableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\FlushableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\LoggerInterface;
+use Hobosoft\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\Contracts\Traits\ChannelsTrait;
+use Hobosoft\Logger\Handlers\ProcessorHandler;
+use Hobosoft\Logger\Processors\TimestampProcessor;
 use Psr\Log\AbstractLogger;
 
 class Logger extends AbstractLogger implements LoggerInterface, ResettableInterface, FlushableInterface, ClosableInterface

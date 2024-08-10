@@ -1,15 +1,15 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
 use Closure;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\CascadeOutputSingleTrait;
-use Library\Logger\Contracts\Traits\CascadeNameTrait;
-use Library\Logger\Contracts\Traits\ProcessableHandlerTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\CascadeOutputSingleTrait;
+use Hobosoft\Logger\Contracts\Traits\CascadeNameTrait;
+use Hobosoft\Logger\Contracts\Traits\ProcessableHandlerTrait;
+use Hobosoft\Logger\LogItem;
 
 class ProcessorWriter extends AbstractWriter implements WriterInterface
 {

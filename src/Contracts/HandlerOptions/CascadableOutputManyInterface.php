@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Contracts\HandlerOptions;
+namespace Hobosoft\Logger\Contracts\HandlerOptions;
 
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\LogItem;
 
 interface CascadableOutputManyInterface extends HandlerInterface
 {

@@ -1,19 +1,19 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use BadMethodCallException;
 use Library\Config\Definitions\Exceptions\Exception;
-use Library\Logger\Contracts\LoggerInterface;
-use Library\Logger\Contracts\Handlers\FilterInterface;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\FormattableHandlerTrait;
-use Library\Logger\Formatters\LineFormatter;
-use Library\Logger\Handlers\AbstractHandler;
-use Library\Logger\Writers\NullWriter;
+use Hobosoft\Logger\Contracts\LoggerInterface;
+use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\FormattableHandlerTrait;
+use Hobosoft\Logger\Formatters\LineFormatter;
+use Hobosoft\Logger\Handlers\AbstractHandler;
+use Hobosoft\Logger\Writers\NullWriter;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
 
 class CascadeBuilder extends AbstractHandler implements HandlerInterface
@@ -36,7 +36,7 @@ class CascadeBuilder extends AbstractHandler implements HandlerInterface
 
     public function handle(LogItem $item): bool
     {
-        if ($this->imitateHandler instanceof \Library\Logger\Contracts\Handlers\HandlerInterface) {
+        if ($this->imitateHandler instanceof \Hobosoft\Logger\Contracts\Handlers\HandlerInterface) {
             return $this->imitateHandler->handle($item);
         }
         return false;
@@ -70,7 +70,7 @@ class CascadeBuilder extends AbstractHandler implements HandlerInterface
 
     public function __call(string $name, array $arguments): mixed
     {
-        if($this->imitateHandler instanceof \Library\Logger\Contracts\Handlers\HandlerInterface) {
+        if($this->imitateHandler instanceof \Hobosoft\Logger\Contracts\Handlers\HandlerInterface) {
             if (method_exists($this->imitateHandler, $name)) {
                 return $this->imitateHandler->$name(...$arguments);
             }

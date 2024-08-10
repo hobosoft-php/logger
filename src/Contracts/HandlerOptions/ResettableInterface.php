@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Contracts\HandlerOptions;
+namespace Hobosoft\Logger\Contracts\HandlerOptions;
 
 interface ResettableInterface
 {

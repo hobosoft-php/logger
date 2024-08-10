@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Contracts\Handlers;
+namespace Hobosoft\Logger\Contracts\Handlers;
 
-use Library\Logger\Contracts\HandlerOptions\ClosableInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\ClosableInterface;
+use Hobosoft\Logger\LogItem;
 
 interface ProcessorInterface
 {

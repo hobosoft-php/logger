@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Contracts;
+namespace Hobosoft\Logger\Contracts;
 
 use Psr\Log\LogLevel as PsrLogLevel;
 

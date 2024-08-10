@@ -1,10 +1,10 @@
 <?php
 
-namespace Library\Logger\Processors;
+namespace Hobosoft\Logger\Processors;
 
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
-use Library\Logger\Contracts\Traits\ProcessableHandlerTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\Contracts\Traits\ProcessableHandlerTrait;
+use Hobosoft\Logger\LogItem;
 
 class TagProcessor extends AbstractProcessor implements ProcessorInterface
 {

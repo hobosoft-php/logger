@@ -1,11 +1,11 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\CascadeInputTrait;
-use Library\Logger\Contracts\Traits\CascadeOutputSingleTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\CascadeInputTrait;
+use Hobosoft\Logger\Contracts\Traits\CascadeOutputSingleTrait;
+use Hobosoft\Logger\LogItem;
 
 class NullWriter extends AbstractWriter implements WriterInterface
 {

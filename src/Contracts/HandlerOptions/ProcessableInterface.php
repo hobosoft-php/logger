@@ -1,8 +1,8 @@
 <?php
 
-namespace Library\Logger\Contracts\HandlerOptions;
+namespace Hobosoft\Logger\Contracts\HandlerOptions;
 
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
 
 interface ProcessableInterface
 {

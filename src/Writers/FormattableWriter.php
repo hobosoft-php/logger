@@ -1,13 +1,13 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
-use Library\Logger\Contracts\HandlerOptions\FormattableInterface;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\FormattableHandlerTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\FormattableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\FormattableHandlerTrait;
+use Hobosoft\Logger\LogItem;
 
 class FormattableWriter extends AbstractWriter implements WriterInterface, ResettableInterface
 {

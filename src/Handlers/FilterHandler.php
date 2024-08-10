@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Handlers;
+namespace Hobosoft\Logger\Handlers;
 
 class FilterHandler
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Library\Logger\Contracts\Traits;
+namespace Hobosoft\Logger\Contracts\Traits;
 
-use Library\Logger\Channel;
-use Library\Logger\Contracts\ChannelInterface;
-use Library\Logger\Contracts\HandlerOptions\ClosableInterface;
-use Library\Logger\Contracts\HandlerOptions\FlushableInterface;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\Exceptions\ChannelAlreadyCreatedException;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Channel;
+use Hobosoft\Logger\Contracts\ChannelInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ClosableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\FlushableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\Exceptions\ChannelAlreadyCreatedException;
+use Hobosoft\Logger\LogItem;
 
 trait ChannelsTrait
 {

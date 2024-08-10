@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Filters;
+namespace Hobosoft\Logger\Filters;
 
 class AbstractFilter
 {

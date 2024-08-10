@@ -1,10 +1,10 @@
 <?php
 
-namespace Library\Logger\Formatters;
+namespace Hobosoft\Logger\Formatters;
 
 use DateTimeImmutable;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\LogItem;
 
 class LineFormatter extends AbstractFormatter implements FormatterInterface
 {

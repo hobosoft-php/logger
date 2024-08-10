@@ -1,13 +1,13 @@
 <?php
 
-namespace Library\Logger\Contracts\Traits;
+namespace Hobosoft\Logger\Contracts\Traits;
 
-use Library\Logger\CascadeBuilder;
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\LogLevel;
-use Library\Logger\Exceptions\HandlerDestinationAlreadySetException;
-use Library\Logger\LogItem;
-use Library\Logger\Writers\NullWriter;
+use Hobosoft\Logger\CascadeBuilder;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\Exceptions\HandlerDestinationAlreadySetException;
+use Hobosoft\Logger\LogItem;
+use Hobosoft\Logger\Writers\NullWriter;
 use Monolog\Handler\Handler;
 
 trait CascadeOutputSingleTrait

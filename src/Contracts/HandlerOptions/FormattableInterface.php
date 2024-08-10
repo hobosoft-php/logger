@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Contracts\HandlerOptions;
+namespace Hobosoft\Logger\Contracts\HandlerOptions;
 
 use Closure;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
 
 /**
  * Formatters should only go on the tail end of a chain of handlers.

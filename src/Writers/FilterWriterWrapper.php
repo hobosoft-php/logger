@@ -1,12 +1,12 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
 use Closure;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\Contracts\Handlers\FilterInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\LogItem;
 
 class FilterWriterWrapper extends WriterWrapper implements WriterInterface, ResettableInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Handlers;
+namespace Hobosoft\Logger\Handlers;
 
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\LogItem;
 
 class EntrypointHandler extends AbstractHandler implements HandlerInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Exceptions;
+namespace Hobosoft\Logger\Exceptions;
 
 class HandlerDestinationAlreadySetException extends \Exception
 {

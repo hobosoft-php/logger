@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use ArrayAccess;
-use Library\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\Contracts\LogLevel;
 
 class LogItem implements ArrayAccess
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Library\Logger\Filters;
+namespace Hobosoft\Logger\Filters;
 
-use Library\Logger\Contracts\HandlerOptions\AcceptableInterface;
-use Library\Logger\Contracts\Handlers\FilterInterface;
-use Library\Logger\Contracts\LogLevel;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\AcceptableInterface;
+use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
+use Hobosoft\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\LogItem;
 
 class TagFilter implements FilterInterface
 {

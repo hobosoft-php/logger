@@ -1,13 +1,13 @@
 <?php
 
-namespace Library\Logger\Handlers;
+namespace Hobosoft\Logger\Handlers;
 
 use Closure;
-use Library\Logger\Contracts\HandlerOptions\ClosableInterface;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\Traits\FormattableHandlerTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\ClosableInterface;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\Traits\FormattableHandlerTrait;
+use Hobosoft\Logger\LogItem;
 
 class FormatterHandler extends AbstractHandler implements HandlerInterface
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\LogItem;
 
 class PhpErrorLogWriter extends AbstractWriter implements WriterInterface
 {

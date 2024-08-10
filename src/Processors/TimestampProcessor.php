@@ -1,10 +1,10 @@
 <?php
 
-namespace Library\Logger\Processors;
+namespace Hobosoft\Logger\Processors;
 
 use DateTimeImmutable;
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\LogItem;
 
 class TimestampProcessor extends AbstractProcessor implements ProcessorInterface
 {

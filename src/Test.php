@@ -1,16 +1,16 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use Library\Config\Config;
 use Library\Config\Definitions\Builder\Processor;
 use Library\Config\Definitions\Dumper\YamlReferenceDumper;
 use Library\Config\Loaders\FileLocator;
 use Library\Config\Loaders\Types\YamlLoader;
-use Library\Logger\Handlers\PassthruHandler;
-use Library\Logger\Registry\Registry;
-use Library\Logger\Writers\BufferWriter;
-use Library\Logger\Writers\PrintWriter;
+use Hobosoft\Logger\Handlers\PassthruHandler;
+use Hobosoft\Logger\Registry\Registry;
+use Hobosoft\Logger\Writers\BufferWriter;
+use Hobosoft\Logger\Writers\PrintWriter;
 use Symfony\Component\Yaml\Yaml;
 
 define('ROOTPATH',dirname(__DIR__,2));
@@ -69,7 +69,7 @@ print_r($flat);
 die();
 */
 
-$c = new \Library\Logger\Configuration();
+$c = new \Hobosoft\Logger\Configuration();
 $t = $c->getConfigTreeBuilder();
 //$n = $t->buildTree();
 //print_r($n);

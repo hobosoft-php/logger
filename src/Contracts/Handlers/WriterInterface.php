@@ -1,13 +1,13 @@
 <?php
 
-namespace Library\Logger\Contracts\Handlers;
+namespace Hobosoft\Logger\Contracts\Handlers;
 
 use Closure;
-use Library\Logger\Contracts\HandlerOptions\ClosableInterface;
-use Library\Logger\Contracts\HandlerOptions\FlushableInterface;
-use Library\Logger\Contracts\HandlerOptions\FormattableInterface;
-use Library\Logger\Contracts\HandlerOptions\ResettableInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\ClosableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\FlushableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\FormattableInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ResettableInterface;
+use Hobosoft\Logger\LogItem;
 
 interface WriterInterface extends HandlerInterface, ClosableInterface, FormattableInterface
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use Library\Config\Contracts\ConfigurationInterface;
 use Library\Config\Definitions\Builder\Definitions\ArrayNodeDefinition;
 use Library\Config\Definitions\Builder\Definitions\NodeDefinition;
 use Library\Config\Definitions\Builder\Processor;
 use Library\Config\Definitions\Builder\TreeBuilder;
-use Library\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\Contracts\LogLevel;
 use Modules\Tree\Tree;
 
 class Configuration implements ConfigurationInterface
@@ -50,8 +50,8 @@ class Configuration implements ConfigurationInterface
                     ->canBeUnset()
                     ->ignoreExtraKeys(false)
                     ->children()
-                        ->scalarNode('handler_class')->defaultValue('Library\Logger\Formatters\StdoutWriter')->end()
-                        ->scalarNode('formatter_class')->defaultValue('Library\Logger\Formatters\LineFormatter')->end()
+                        ->scalarNode('handler_class')->defaultValue('Hobosoft\Logger\Formatters\StdoutWriter')->end()
+                        ->scalarNode('formatter_class')->defaultValue('Hobosoft\Logger\Formatters\LineFormatter')->end()
                         ->scalarNode('formatter_format')->defaultValue('[%timestamp%] %channel%.%level_name%: %message% %context%')->end()
                     ->end()
                 ->end()

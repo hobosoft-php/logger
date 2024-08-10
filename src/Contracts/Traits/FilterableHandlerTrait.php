@@ -1,9 +1,9 @@
 <?php
 
-namespace Library\Logger\Contracts\Traits;
+namespace Hobosoft\Logger\Contracts\Traits;
 
-use Library\Logger\Contracts\Handlers\FilterInterface;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
+use Hobosoft\Logger\LogItem;
 
 trait FilterableHandlerTrait
 {

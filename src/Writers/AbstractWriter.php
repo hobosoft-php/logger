@@ -1,12 +1,12 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
-use Library\Logger\Contracts\HandlerOptions\CascadableOutputSingleInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\FormattableHandlerTrait;
-use Library\Logger\Handlers\AbstractHandler;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\HandlerOptions\CascadableOutputSingleInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\FormattableHandlerTrait;
+use Hobosoft\Logger\Handlers\AbstractHandler;
+use Hobosoft\Logger\LogItem;
 
 abstract class AbstractWriter extends AbstractHandler implements WriterInterface, CascadableOutputSingleInterface
 {

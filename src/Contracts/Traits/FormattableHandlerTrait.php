@@ -1,12 +1,12 @@
 <?php
 
-namespace Library\Logger\Contracts\Traits;
+namespace Hobosoft\Logger\Contracts\Traits;
 
 use Closure;
-use Library\Logger\Contracts\Handlers\FormatterInterface;
-use Library\Logger\Formatters\LineFormatter;
-use Library\Logger\Formatters\PassthruFormatter;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
+use Hobosoft\Logger\Formatters\LineFormatter;
+use Hobosoft\Logger\Formatters\PassthruFormatter;
+use Hobosoft\Logger\LogItem;
 
 trait FormattableHandlerTrait
 {

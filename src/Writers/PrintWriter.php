@@ -1,12 +1,12 @@
 <?php
 
-namespace Library\Logger\Writers;
+namespace Hobosoft\Logger\Writers;
 
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\Handlers\WriterInterface;
-use Library\Logger\Contracts\Traits\CascadeOutputSingleTrait;
-use Library\Logger\Contracts\Traits\CascadeNameTrait;
-use Library\Logger\LogItem;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
+use Hobosoft\Logger\Contracts\Traits\CascadeOutputSingleTrait;
+use Hobosoft\Logger\Contracts\Traits\CascadeNameTrait;
+use Hobosoft\Logger\LogItem;
 
 class PrintWriter extends AbstractWriter implements WriterInterface
 {

@@ -1,0 +1,124 @@
+deptrac:
+  paths:
+    - ./src
+
+  analyser:
+    internal_tag: "@internal"
+    types:
+      - class
+      - class_superglobal
+      - file
+      - function
+      - function_superglobal
+      - function_call
+
+  formatters:
+    graphviz:
+      pointToGroups: true
+      groups:
+        Contract:
+          - Contract
+        Supportive:
+          - Supportive
+          - File
+          - Time
+          - DependencyInjection
+          - OutputFormatter
+          - Symfony
+        Core:
+          - Analyser
+          - Ast
+          - Dependency
+          - InputCollector
+          - Layer
+
+  layers:
+    # Domains
+    - name: Analyser
+      collectors:
+        - type: directory
+          value: src/Core/Analyser/.*
+    - name: Ast
+      collectors:
+        - type: directory
+          value: src/Core/Ast/.*
+    - name: Console
+      collectors:
+        - type: directory
+          value: src/Supportive/Console/.*
+    - name: Dependency
+      collectors:
+        - type: directory
+          value: src/Core/Dependency/.*
+    - name: DependencyInjection
+      collectors:
+        - type: directory
+          value: src/Supportive/DependencyInjection/.*
+    - name: Contract
+      collectors:
+        - type: directory
+          value: src/Contract/.*
+    - name: InputCollector
+      collectors:
+        - type: directory
+          value: src/Core/InputCollector/.*
+    - name: Layer
+      collectors:
+        - type: directory
+          value: src/Core/Layer/.*
+    - name: OutputFormatter
+      collectors:
+        - type: directory
+          value: src/Supportive/OutputFormatter/.*
+    - name: File
+      collectors:
+        - type: directory
+          value: src/Supportive/File/.*
+    - name: Time
+      collectors:
+        - type: directory
+          value: src/Supportive/Time/.*
+    - name: Supportive
+      collectors:
+        - type: bool
+          must_not:
+            - type: directory
+              value: src/Supportive/.*/.*
+          must:
+            - type: directory
+              value: src/Supportive/.*
+
+  ruleset:
+    Layer:
+      - Ast
+      - Symfony
+    Console:
+      - Analyser
+      - OutputFormatter
+      - DependencyInjection
+      - File
+      - Time
+      - Symfony
+    Dependency:
+      - Ast
+    Analyser:
+      - Layer
+      - Dependency
+      - Ast
+      - Symfony
+    OutputFormatter:
+      - DependencyInjection
+      - Symfony
+    Ast:
+      - File
+      - InputCollector
+      - Symfony
+    InputCollector:
+      - File
+      - Symfony
+    DependencyInjection:
+      - Symfony
+    Contract:
+      - Symfony
+    File:
+      - Symfony

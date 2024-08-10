@@ -1,15 +1,15 @@
 <?php
 
-namespace Library\Logger;
+namespace Hobosoft\Logger;
 
 use Closure;
-use Library\Logger\Contracts\ChannelInterface;
-use Library\Logger\Contracts\HandlerOptions\ProcessableInterface;
-use Library\Logger\Contracts\Handlers\HandlerInterface;
-use Library\Logger\Contracts\Handlers\ProcessorInterface;
-use Library\Logger\Contracts\LogLevel;
-use Library\Logger\Contracts\Traits\ProcessableHandlerTrait;
-use Library\Logger\Processors\ChannelProcessor;
+use Hobosoft\Logger\Contracts\ChannelInterface;
+use Hobosoft\Logger\Contracts\HandlerOptions\ProcessableInterface;
+use Hobosoft\Logger\Contracts\Handlers\HandlerInterface;
+use Hobosoft\Logger\Contracts\Handlers\ProcessorInterface;
+use Hobosoft\Logger\Contracts\LogLevel;
+use Hobosoft\Logger\Contracts\Traits\ProcessableHandlerTrait;
+use Hobosoft\Logger\Processors\ChannelProcessor;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;

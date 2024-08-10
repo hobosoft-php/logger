@@ -1,6 +1,6 @@
 <?php
 
-namespace Library\Logger\Registry;
+namespace Hobosoft\Logger\Registry;
 
 interface RegistryInterface
 {
