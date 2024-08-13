@@ -13,7 +13,7 @@
     },
     "require-dev": {
         "pestphp/pest": "*",
-        "czproject/phpdepend": "dev-master",
+        "czproject/phpdepend": "*",
         "phan/phan": "v5.x-dev"
     },
     "config": {
@@ -22,6 +22,6 @@
         }
     },
     "require": {
-        "hobosoft/config": "dev-main"
+        "hobosoft/config": "*"
     }
 }
