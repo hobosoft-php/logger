@@ -16,7 +16,7 @@ use Psr\Log\LoggerTrait;
 
 class Channel extends AbstractLogger implements ChannelInterface, ProcessableInterface
 {
-    public $writer;
+    public ?HandlerInterface $writer;
     use LoggerTrait;
     use ProcessableHandlerTrait;
     
@@ -35,7 +35,7 @@ class Channel extends AbstractLogger implements ChannelInterface, ProcessableInt
             $this->logger->log(LogLevel::Notice, "Channel:  log channel '{$this->name}' is closed.");
             return;
         }
-        $this->logger->log($this->processRecord(LogItem::create(LogLevel::normalize($level), $message, $context)), '');
+        $this->logger->log($this->processRecord(LogItem::create(LogLevel::normalize($level), $message, $context + ['channel' => $this->name])));
     }
     
     public static function create(LoggerInterface $logger, string $name): Channel

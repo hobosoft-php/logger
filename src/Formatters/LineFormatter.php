@@ -8,7 +8,16 @@ use Hobosoft\Logger\LogItem;
 
 class LineFormatter extends AbstractFormatter implements FormatterInterface
 {
-    public const SIMPLE_FORMAT = "[%timestamp%] %channel%.%level_name%: %message% %context%\n";
+    const string SIMPLE_FORMAT = "[%timestamp%] %level_name%: %channel%: %message% %context%\n";
+
+    protected array $pcreErrors = [
+        0 => 'PREG_NO_ERROR',
+        1 => 'PREG_INTERNAL_ERROR',
+        2 => 'PREG_BACKTRACK_LIMIT_ERROR',
+        3 => 'PREG_RECURSION_LIMIT_ERROR',
+        4 => 'PREG_BAD_UTF8_ERROR',
+        5 => 'PREG_BAD_UTF8_OFFSET_ERROR',
+    ];
 
     public function __construct(
         private int $maxLevelNameLength = 10,
@@ -23,8 +32,8 @@ class LineFormatter extends AbstractFormatter implements FormatterInterface
     public function format(LogItem $item): mixed
     {
         $vars = $this->normalizeRecord($item);
-        $vars['channel'] = $vars['context']['channel'] ?? 'default';
-        $vars['timestamp'] = $vars['context']['timestamp'] ?? 0;
+        $vars['channel'] = $vars['channel'] ?? $vars['context']['channel'] ?? 'default';
+        $vars['timestamp'] = $vars['timestamp'] ?? $vars['context']['timestamp'] ?? 0;
         unset($vars['context']['channel']);
         unset($vars['context']['timestamp']);
 
@@ -71,12 +80,11 @@ class LineFormatter extends AbstractFormatter implements FormatterInterface
             if (null === $output) {
                 $pcreErrorCode = preg_last_error();
 
-                throw new \RuntimeException('Failed to run preg_replace: ' . $pcreErrorCode . ' / ' . Utils::pcreLastErrorMessage($pcreErrorCode));
+                throw new \RuntimeException('Failed to run preg_replace: ' . $pcreErrorCode . ' / ' . self::$pcreErrors[$pcreErrorCode]);
             }
         }
-        $item->formatted = $output;
+        $item->formatted = $output; //rtrim($output, "\n") . PHP_EOL;
         return $item;
-        //return $output;
     }
 
     public function stringify($value): string
@@ -104,7 +112,7 @@ class LineFormatter extends AbstractFormatter implements FormatterInterface
                 $str = preg_replace('/(?<!\\\\)\\\\[rn]/', "\n", $str);
                 if (null === $str) {
                     $pcreErrorCode = preg_last_error();
-                    throw new \RuntimeException('Failed to run preg_replace: ' . $pcreErrorCode . ' / ' . Utils::pcreLastErrorMessage($pcreErrorCode));
+                    throw new \RuntimeException('Failed to run preg_replace: ' . $pcreErrorCode . ' / ' . self::$pcreErrors[$pcreErrorCode]);
                 }
             }
 
@@ -217,7 +225,7 @@ class LineFormatter extends AbstractFormatter implements FormatterInterface
             'file' => $e->getFile().':'.$e->getLine(),
         ];
 
-        if ($e instanceof \SoapFault) {
+        /*if ($e instanceof \SoapFault) {
             if (isset($e->faultcode)) {
                 $data['faultcode'] = $e->faultcode;
             }
@@ -233,7 +241,7 @@ class LineFormatter extends AbstractFormatter implements FormatterInterface
                     $data['detail'] = $this->toJson($e->detail, true);
                 }
             }
-        }
+        }*/
 
         $trace = $e->getTrace();
         foreach ($trace as $frame) {

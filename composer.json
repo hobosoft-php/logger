@@ -7,14 +7,14 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Hobosoft\\Logger\\": "src/",
-            "Library\\Filesystem\\Finders\\": "/var/www/projects/fdsdb/library/Filesystem/Finders/"
+            "Hobosoft\\Logger\\": "src/"
         }
     },
     "require-dev": {
         "pestphp/pest": "*",
         "czproject/phpdepend": "*",
-        "phan/phan": "v5.x-dev"
+        "phan/phan": "v5.x-dev",
+        "symfony/var-dumper": "7.2.x-dev"
     },
     "config": {
         "allow-plugins": {
@@ -22,6 +22,8 @@
         }
     },
     "require": {
-        "hobosoft/config": "*"
+        "hobosoft/config": "*",
+        "psr/log": "^3.0@dev",
+        "hobosoft/fileloaders": "^1.0"
     }
 }

@@ -13,7 +13,12 @@ use Hobosoft\Logger\LogItem;
 trait ChannelsTrait
 {
     protected array $channels = [];
-    
+
+    public function getChannel(string $name): ChannelInterface
+    {
+        return $this->channels[$name] ?? ($this->channels[$name] = new Channel($this, $name));
+    }
+
     public function createChannel(string $name): ChannelInterface
     {
         if (isset($this->channels[$name])) {

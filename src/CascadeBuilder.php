@@ -3,7 +3,7 @@
 namespace Hobosoft\Logger;
 
 use BadMethodCallException;
-use Library\Config\Definitions\Exceptions\Exception;
+use Exception;
 use Hobosoft\Logger\Contracts\LoggerInterface;
 use Hobosoft\Logger\Contracts\Handlers\FilterInterface;
 use Hobosoft\Logger\Contracts\Handlers\FormatterInterface;
@@ -14,6 +14,7 @@ use Hobosoft\Logger\Contracts\Traits\FormattableHandlerTrait;
 use Hobosoft\Logger\Formatters\LineFormatter;
 use Hobosoft\Logger\Handlers\AbstractHandler;
 use Hobosoft\Logger\Writers\NullWriter;
+use Hobosoft\Logger\Writers\BufferWriter;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
 
 class CascadeBuilder extends AbstractHandler implements HandlerInterface
@@ -118,16 +119,6 @@ class CascadeBuilder extends AbstractHandler implements HandlerInterface
         return null;
     }
 
-    /*
-        public function addCascadeHandler(Writers\BufferWriter $param, string $destHandlerName = null, array|string $destPath = []): void
-        {
-            $writer = $this;
-            while($writer->hasOutputDestination()) {
-                $handler = $writer->getOutputDestination();
-                $outputs = $handler->getOutputs();
-                $writer = $handler;
-            }
-        }*/
     public function getCascadeEnd(): ?HandlerInterface
     {
         /** @var HandlerInterface $handler */

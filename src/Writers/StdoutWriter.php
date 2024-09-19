@@ -4,9 +4,6 @@ namespace Hobosoft\Logger\Writers;
 
 use Hobosoft\Logger\Contracts\Handlers\WriterInterface;
 use Hobosoft\Logger\LogItem;
-use Plugins\LogExtra\Writers\StreamWriter;
-
-return;
 
 class StdoutWriter extends StreamWriter implements WriterInterface
 {

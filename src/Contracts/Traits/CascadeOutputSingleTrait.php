@@ -8,7 +8,6 @@ use Hobosoft\Logger\Contracts\LogLevel;
 use Hobosoft\Logger\Exceptions\HandlerDestinationAlreadySetException;
 use Hobosoft\Logger\LogItem;
 use Hobosoft\Logger\Writers\NullWriter;
-use Monolog\Handler\Handler;
 
 trait CascadeOutputSingleTrait
 {
@@ -44,9 +43,9 @@ trait CascadeOutputSingleTrait
         $oldclass = ($this->outputDestination === null) ? 'NULL (not set/not used yet)' : get_class($this->outputDestination);
         $newclass = get_class($handler);
         $this->outputDestination = $handler;
-        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "Logger setOutputDestination:  ".get_called_class()."\n"));
-        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "   old:  class:   ".$oldclass."\n"));
-        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "   new:  class:   ".$newclass."\n", ['channel', 'logger']));
+        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "Logger setOutputDestination:  ".get_called_class()));
+        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "   old:  class:   ".$oldclass));
+        $this->outputDestination->handle(LogItem::create(LogLevel::Info, "   new:  class:   ".$newclass, ['channel', 'logger']));
         return $handler;
     }
 }

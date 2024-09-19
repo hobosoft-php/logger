@@ -2,18 +2,26 @@
 
 namespace Hobosoft\Logger;
 
-use Library\Config\Config;
-use Library\Config\Definitions\Builder\Processor;
-use Library\Config\Definitions\Dumper\YamlReferenceDumper;
-use Library\Config\Loaders\FileLocator;
-use Library\Config\Loaders\Types\YamlLoader;
-use Hobosoft\Logger\Handlers\PassthruHandler;
+use Hobosoft\Config\Config;
+use Hobosoft\Config\Schema\Processor;
+
+use Hobosoft\FileLoaders\Loader\DelegatingLoader;
+use Hobosoft\FileLoaders\Loader\FileLocator;
+use Hobosoft\FileLoaders\Loader\Types\IniLoader;
+use Hobosoft\FileLoaders\Loader\Types\PhpLoader;
+use Hobosoft\FileLoaders\Loader\Types\YamlLoader;
 use Hobosoft\Logger\Registry\Registry;
 use Hobosoft\Logger\Writers\BufferWriter;
 use Hobosoft\Logger\Writers\PrintWriter;
 use Symfony\Component\Yaml\Yaml;
 
-define('ROOTPATH',dirname(__DIR__,2));
+define('ROOTPATH',dirname(__DIR__,1));
+
+print("===============================================\n");
+print("ROOTPATH = " . ROOTPATH . "\n");
+print("===============================================\n");
+
+include     ROOTPATH . '/vendor/autoload.php';
 
 function include_path(array|string $path): void
 {
@@ -42,7 +50,6 @@ spl_autoload_register(function ($class): void {
 });
 
 include_path([
-    ROOTPATH . '/vendor/autoload.php',
     ROOTPATH . '/library/Bootloader/TinyLogger.php',
     ROOTPATH . '/library/Logger/Contracts/HandlerInterface.php',
     ROOTPATH . '/library/Logger/Contracts/*.php',
@@ -50,10 +57,10 @@ include_path([
     ROOTPATH . '/library/Logger/Loaders/*.php',
     ROOTPATH . '/library/Logger/Abstract*.php',
     ROOTPATH . '/library/Logger/Logger.php',
-    __DIR__ . '/Configuration.php',
+    //__DIR__ . '/Configuration.php',
 ]);
 
-include_once(__DIR__.'/Configuration.php');
+//include_once(__DIR__.'/Configuration.php');
 
 /*
 $config = new Config();
@@ -69,29 +76,33 @@ print_r($flat);
 die();
 */
 
-$c = new \Hobosoft\Logger\Configuration();
-$t = $c->getConfigTreeBuilder();
+//$c = new \Hobosoft\Logger\Configuration();
+//$t = $c->getConfigTreeBuilder();
 //$n = $t->buildTree();
 //print_r($n);
-$d = new YamlReferenceDumper();
-file_put_contents(__DIR__.'/refconfig.yaml', $d->dump($c));
+//$d = new YamlReferenceDumper();
+//file_put_contents(__DIR__.'/refconfig.yaml', $d->dump($c));
 //print_r($d->dump($c));
 
-$loader = new YamlLoader(new FileLocator(__DIR__));
-$oldcfg = $loader->load('test.yaml');
+//$loader = new YamlLoader(new FileLocator(__DIR__));
+//$oldcfg = $loader->load('test.yaml');
 //print_r($oldcfg);
 
-$processor = new Processor();
-$configuration = new Configuration();
+
+$loader = $loader ?? new DelegatingLoader([
+    YamlLoader::class,
+    PhpLoader::class,
+    IniLoader::class,
+], new FileLocator(\Hobosoft\MegaLoader\Utils::getDefinedPath('config')));
+
+
+//$processor = new Processor();
+//$configuration = new Configuration();
 //$config = $configuration->processConfiguration($configuration, $oldcfg);
-$config = $processor->processConfiguration($configuration, $oldcfg);
+//$config = $processor->processConfiguration($configuration, $oldcfg);
 
-
+$config = [];
 $yaml = Yaml::dump($config, 10);
-file_put_contents(__DIR__.'/config.yaml', $yaml);
-file_put_contents(__DIR__.'/config.y.php', var_export($config, true));
-//print_r($config);
-file_put_contents(__DIR__.'/config.yaml', $yaml);
 
 //$logger = new Logger([], ($writer = new BufferWriter()));
 //$logger = new Logger([], ($writer = new FileWriter(ROOTPATH.'/var/log/test.log')));
@@ -121,8 +132,8 @@ $writer->setOutputDestination(($bw = new BufferWriter('BufferWriter')));
 $bw->setOutputDestination(($pw = new PrintWriter()));
 
 /** @var Registry $reg */
-$reg = Registry::getInstance();
-$reg->addHandler(PassthruHandler::class);
+//$reg = Registry::getInstance();
+//$reg->addHandler(PassthruHandler::class);
 
 print_r($writer);
 $writer->traceHandlers();

@@ -23,7 +23,7 @@ class BufferWriter extends AbstractWriter implements WriterInterface, Resettable
 
     public function __construct(
         string $name,
-        protected int $maxLines = 25,
+        protected int $maxLines = 1000,
     )
     {
         $this->__traitConstruct($name);

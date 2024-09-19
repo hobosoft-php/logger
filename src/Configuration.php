@@ -2,14 +2,10 @@
 
 namespace Hobosoft\Logger;
 
-use Library\Config\Contracts\ConfigurationInterface;
-use Library\Config\Definitions\Builder\Definitions\ArrayNodeDefinition;
-use Library\Config\Definitions\Builder\Definitions\NodeDefinition;
-use Library\Config\Definitions\Builder\Processor;
-use Library\Config\Definitions\Builder\TreeBuilder;
-use Hobosoft\Logger\Contracts\LogLevel;
-use Modules\Tree\Tree;
+use Hobosoft\Config\Contracts\ConfigurationInterface;
+use Hobosoft\Config\Schema\Processor;
 
+/*
 class Configuration implements ConfigurationInterface
 {
     final public function processConfiguration(ConfigurationInterface $configuration, array $configs): array
@@ -260,3 +256,4 @@ class Configuration implements ConfigurationInterface
         return $tb;
     }
 }
+*/

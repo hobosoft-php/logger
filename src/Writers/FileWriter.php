@@ -24,7 +24,7 @@ class FileWriter extends AbstractWriter implements WriterInterface
 
     public function handle(LogItem $item): bool
     {
-        file_put_contents($this->filename, $str, FILE_APPEND);
+        file_put_contents($this->filename, $item, FILE_APPEND);
         return true;
     }
 
