@@ -29,7 +29,7 @@ class Channel extends AbstractLogger implements ChannelInterface, ProcessableInt
         $this->pushProcessor(new ChannelProcessor($name));
     }
 
-    public function log($level, \Stringable|string $message, array $context = []): void
+    public function log($level, $message, array $context = []): void
     {
         if($this->isClosed) {
             $this->logger->log(LogLevel::Notice, "Channel:  log channel '{$this->name}' is closed.");

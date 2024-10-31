@@ -21,10 +21,10 @@ use Hobosoft\Logger\Formatters\LineFormatter;
 use Hobosoft\Logger\Handlers\ProcessorHandler;
 use Hobosoft\Logger\Processors\TimestampProcessor;
 use Hobosoft\Logger\Writers\PrintWriter;
-use Psr\Log\AbstractLogger;
+use Psr\Log\AbstractLogger as PsrAbstractLogger;
 use Psr\Log\LoggerInterface as PsrLoggerInterface;
 
-class Logger extends AbstractLogger implements LoggerInterface, ResettableInterface, FlushableInterface, ClosableInterface, ConfigAwareInterface
+class Logger extends PsrAbstractLogger implements LoggerInterface, ResettableInterface, FlushableInterface, ClosableInterface, ConfigAwareInterface
 {
 	protected bool $showTimestamps;
 
@@ -83,7 +83,7 @@ class Logger extends AbstractLogger implements LoggerInterface, ResettableInterf
         return $this;
     }
 
-    public function log(mixed $level, \Stringable  | string $message = '', array $context = []): void {
+    public function log($level, $message = null, array $context = []): void {
 		if ($level instanceof LogItem) {
 			$item = $level;
 		} elseif (!$level instanceof LogLevel && !is_string($level) && !is_int($level)) {
